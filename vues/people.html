@@ -1,0 +1,13 @@
+<div id="People">
+    <h1>People</h1>
+    <div v-if="status" class="status">
+	{{ status }}
+    </div>
+    <div class="person" v-for="person in people">
+	<input v-on:input="save_changes(person)" type="text" v-model="person.firstname">
+	<input v-on:input="save_changes(person)" type="text" v-model="person.lastname">
+	<input v-on:input="save_changes(person)" type="text" v-model="person.dateofbirth">
+	<input v-on:input="save_changes(person)" type="text" v-model="person.zipcode">
+    </div>
+    <button class="add" v-on:click="add">+ Add</button>
+</div>
