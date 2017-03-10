@@ -12,6 +12,13 @@ def get(id):
         zipcode = person.zipcode
     )
 
+def delete(id):
+    person = db.session.query(Person).filter(Person.id == id).first()
+    if person is None: return False
+    db.session.delete(person)
+    db.session.commit()
+    return True
+
 def update(newperson):
     person = db.session.query(Person).filter(Person.id == newperson.id).first()
     if person is None: return False

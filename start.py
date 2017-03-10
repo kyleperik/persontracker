@@ -52,9 +52,8 @@ def save_person(id):
         dateofbirth = dateofbirth,
         zipcode = newperson['zipcode']
     )
-    person
     data.person.update(person)
-    return ''
+    return jsonify(True)
 
 @app.route('/', methods=['PUT'])
 def add_person():
@@ -68,6 +67,11 @@ def add_person():
     )
     id = data.person.add(person);
     return jsonify(id)
+
+@app.route('/<int:id>', methods=['DELETE'])
+def delete_person(id):
+    data.person.delete(id);
+    return jsonify('')
 
 @app.route('/<int:id>')
 def get_person(id):

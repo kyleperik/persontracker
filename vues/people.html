@@ -1,13 +1,16 @@
 <div id="People">
-    <h1>People</h1>
+    <h1>People Tracker!</h1>
     <div v-if="status" class="status">
 	{{ status }}
     </div>
-    <div class="person" v-for="person in people">
-	<input v-on:input="save_changes(person)" type="text" v-model="person.firstname">
-	<input v-on:input="save_changes(person)" type="text" v-model="person.lastname">
-	<input v-on:input="save_changes(person)" type="text" v-model="person.dateofbirth">
-	<input v-on:input="save_changes(person)" type="text" v-model="person.zipcode">
-    </div>
+    <transition-group name="person">
+	<div class="person" v-for="person in people" v-bind:key="person">
+	    <div class="delete" v-on:click="del(person)"><button>del</button></div>
+	    <input v-on:input="save_changes(person)" placeholder="Firstname" type="text" v-model="person.firstname">
+	    <input v-on:input="save_changes(person)" placeholder="Lastname" type="text" v-model="person.lastname">
+	    <date-input v-on:update="save_changes(person)" placeholder="Date of Birth" v-model="person.dateofbirth"></date-input>
+	    <input v-on:input="save_changes(person)" placeholder="Zipcode" type="text" v-model="person.zipcode">
+	</div>
+    </transition-group>
     <button class="add" v-on:click="add">+ Add</button>
 </div>

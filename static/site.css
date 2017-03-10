@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    font-family: sans-serif;
 }
 
 .content {
@@ -9,12 +10,13 @@ body {
 }
 
 h1 {
-    padding: 10px 40px;
+    padding: 10px 10px;
+    padding-left: 80px;
     display: inline-block;
 }
 
 button {
-    background: none;
+    background: white;
     border: 1px solid #d0d0d0;
     border-radius: 3px;
     cursor: pointer;
@@ -30,11 +32,20 @@ button:hover {
 }
 #People .person {
     background-color: white;
-    padding: 5px 10px;
     border: 2px solid #d4d4d4;
-    border-left-width: 20px;
     border-radius: 3px;
-    margin: 10px;
+    margin: 5px 10px;
+    display: flex;
+    align-items: stretch;
+}
+#People .person input {
+    margin: 5px;
+    flex-grow: 1;
+}
+#People .delete {
+    padding: 6px 5px;
+    display: inline-block;
+    background-color: #d4d4d4;
 }
 #People .add {
    margin: 10px 10px;
